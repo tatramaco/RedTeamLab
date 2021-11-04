@@ -1,0 +1,22 @@
+- name: Create lab directory 
+  ansible.windows.win_file:
+    path: C:\labs
+    state: directory
+
+- name: share lab directory
+  ansible.windows.win_share:
+    name: labs
+    description: top secret share
+    path: C:\labs
+    list: yes
+    full: Administrators
+    read: everyone
+
+- name: Unzip Lab files
+  community.windows.win_unzip:
+    src: C:\Users\Administrator\Downloads\lab_files.zip
+    dest: C:\Users\Administrator\Downloads\
+
+- name: Deploy Threat Optics on DC
+  ansible.windows.win_shell: C:\Users\Administrator\Downloads\optics.ps1 >> C:\Users\Administrator\Downloads\somelog.txt
+  ignore_errors: yes

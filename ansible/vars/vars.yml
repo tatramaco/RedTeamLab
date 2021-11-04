@@ -1,0 +1,7 @@
+# Domain Controller
+windows_domain_controller_info:
+  dns_domain_name: victim.local
+  domain_admin_password: P@ssword123
+  domain_admin_user: Administrator@victim.local
+  safe_mode_password: P@ssword123
+  state: domain_controller

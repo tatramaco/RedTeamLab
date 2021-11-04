@@ -1,0 +1,8 @@
+aws_pem           = "../RT_lab.pem"
+aws_region        = "eu-central-1"
+#aws_creds_file    = "~/.aws/credentials"
+#aws_profile       = "redteamlab"
+ssh_key           = "RT_lab"
+alt_rdp_source_ip = "188.123.111.94/32"
+win_username      = "Administrator"
+win_password      = "P@ssword123"

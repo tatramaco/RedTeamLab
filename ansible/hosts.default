@@ -1,0 +1,15 @@
+DC01 ansible_ssh_host=${DC_ip}
+member1 ansible_ssh_host=${member_ip}
+workstation1 ansible_ssh_host=${work_ip}
+
+[win]
+DC01
+member1
+workstation1
+
+[win:vars]
+ansible_connection=winrm
+ansible_ssh_port=5986
+ansible_ssh_user=Administrator
+ansible_ssh_pass=P@ssword123
+ansible_winrm_server_cert_validation=ignore

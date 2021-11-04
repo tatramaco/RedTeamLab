@@ -1,0 +1,23 @@
+- hosts: DC01
+  gather_facts: True
+  roles:
+    - common
+    - windows_dns_server
+    - windows_domain_controller
+    - DC-optics
+  vars_files:
+    - ../vars/vars.yml 
+
+- hosts: member1
+  gather_facts: True
+  roles:
+    - memberserver
+  vars_files:
+    - ../vars/vars.yml 
+
+- hosts: workstation1
+  gather_facts: True
+  roles:
+    - workstation
+  vars_files:
+    - ../vars/vars.yml 

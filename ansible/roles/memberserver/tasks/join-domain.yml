@@ -1,0 +1,19 @@
+- name: Setting DNS Servers
+  win_dns_client:
+    adapter_names: "*"
+    ipv4_addresses: "10.0.1.10"
+    
+- name: Join AD
+  ansible.windows.win_domain_membership:
+      dns_domain_name: "{{ windows_domain_controller_info['dns_domain_name'] }}"
+      hostname: member1
+      domain_admin_user: "{{ windows_domain_controller_info['domain_admin_user'] }}"
+      domain_admin_password: "{{ windows_domain_controller_info['domain_admin_password'] }}"
+      state: domain
+  register: domain_state
+
+- name: reboot | Rebooting Server
+  win_reboot:
+    reboot_timeout_sec: 300
+    shutdown_timeout: 300
+  when: domain_state.reboot_required

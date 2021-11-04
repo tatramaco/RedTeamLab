@@ -1,0 +1,5 @@
+- include: works-hostname.yml
+- include: join-domain.yml
+- include: windows-disable-defender.yml
+  when: ansible_distribution is search ('Microsoft')
+- include: ws-optics.yml
