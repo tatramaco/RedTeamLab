@@ -101,20 +101,7 @@ $admin = [adsi]("WinNT://./${var.win_username}, user")
 $admin.PSBase.Invoke("SetPassword", "${var.win_password}")
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 Invoke-Expression ((New-Object System.Net.Webclient).DownloadString('https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1'))
-Invoke-WebRequest -URI https://unisafe.cz/s/GydpyCtLF2SgZf2/download/lab_files.zip -OutFile c:\users\Administrator\Downloads\lab_files.zip
+Invoke-WebRequest -URI https://github.com/tatramaco/RedTeamLab/blob/main/extras/lab_files.zip -OutFile c:\users\Administrator\Downloads\lab_files.zip
 </powershell>
 EOF
-
-//provisioner "file" {
-//    source      = "./modules/active-directory/files/"
-//    destination = "c:/users/Administrator/Downloads"
-//    connection {
-//    type     = "winrm"
-//    user     = "Administrator"
-//    password = "${var.win_password}"
-//    host     = self.public_ip
-//    https = true
-//    insecure = true
-//  }
-//  }
 }
