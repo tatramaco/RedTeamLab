@@ -1,6 +1,6 @@
 # RedTeamLab
 
-A dirty automated deployment on AWS for an Active Directory Lab comprising a DC, member server and workstation along with a HELK threat hunting linux machine.
+A dirty automated deployment on AWS for an Active Directory Lab comprising a DC, member server and workstation along with a HELK threat hunting linux machine. Full credit to the DefensiveOrigins team as this is an adaptation of the Applied Purple Team lab which they run on Azure.
 
 The AD will be empty but you can populate it with the provided script or https://github.com/davidprowe/BadBlood
 
